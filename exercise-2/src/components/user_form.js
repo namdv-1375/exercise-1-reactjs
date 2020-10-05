@@ -5,25 +5,31 @@ import { Button, Form, Col, Row } from 'react-bootstrap';
 export default class UserForm extends Component {
   constructor(props) {
     super(props);
-    this.state = this.props.currentUser
+    this.state = {
+      id: null,
+      name: '',
+      email: ''
+    }
   }
 
-  componentWillReceiveProps(nextProps){
-    this.setState(nextProps.currentUser)
+  componentWillReceiveProps(nextProps) {
+    if (this.state === null) {
+      this.setState(nextProps.currentUser)
+    }
   }
 
   onChangeAttribute(event, attribute) {
     let newState = this.state
+    if (newState['id'] === null) {
+      newState['id'] = Date.now()
+    }
     newState[attribute] = event.target.value
     this.setState(newState);
   }
 
-  onSubmitForm() {
-
-  }
-
   render() {
-    if (!this.props.currentUser) {return null;}
+    const { currentUser, isAddUser } = this.props;
+    if (!isAddUser) {return null;}
 
     return (
       <div className='mg-l-15'>
@@ -45,10 +51,10 @@ export default class UserForm extends Component {
           <Row>
             <Col sm='4'></Col>
             <Col sm='1' className='mg-r-15'>
-              <Button variant='secondary'>Cancel</Button>
+              <Button variant='secondary' onClick={() => this.props.onSubmitForm(currentUser)}>Cancel</Button>
             </Col>
             <Col sm='1'>
-              <Button variant='success'>Save</Button>
+              <Button variant='success' onClick={() => this.props.onSubmitForm(this.state)}>Save</Button>
             </Col>
           </Row>
         </Form>

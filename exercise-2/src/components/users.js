@@ -1,26 +1,19 @@
 import React, { Component } from 'react';
-import TableUserData from './table_user_data';
+import UserData from './user_data';
 import UserForm from './user_form'
+import CurrentTime from '../shared/current_time'
 
-export default class User extends Component {
+export default class Users extends Component {
   constructor() {
     super();
     this.state = {
-      users: [
-        {id: 1, name: 'Gio', email: 'test1@example.com'},
-        {id: 2, name: 'Oi', email: 'test2@example.com'},
-        {id: 3, name: 'Xin', email: 'test3@example.com'},
-        {id: 4, name: 'Dung', email: 'test4@example.com'},
-        {id: 5, name: 'Lay', email: 'test5@example.com'},
-        {id: 6, name: 'Em', email: 'test6@example.com'},
-        {id: 7, name: 'Di', email: 'test7@example.com'}
-      ],
-      curTime : new Date().toLocaleString(),
-      currentUser: null
+      users: JSON.parse(localStorage.getItem('users')) || [],
+      currentUser: null,
+      isAddUser: false
     }
   }
 
-  componentWillMount() {
+  componentDidUpdate(){
     localStorage.setItem('users', JSON.stringify(this.state.users));
   }
 
@@ -36,9 +29,24 @@ export default class User extends Component {
     this.setState(newState)
   }
 
-  onSubmitForm(user) {
+  onSubmitForm(currentUser) {
     let newState = this.state
-    this
+    let currentIndex = newState.users.findIndex(user => user.id === currentUser.id)
+
+    if (currentIndex >= 0) {
+      newState.users[currentIndex] = currentUser
+      this.setState(newState)
+    } else {
+      this.setState({
+        users: [...this.state.users, currentUser]
+      })
+    }
+  }
+
+  addUserHandler() {
+    this.setState({
+      isAddUser: true
+    })
   }
 
   renderTableListUser() {
@@ -47,22 +55,28 @@ export default class User extends Component {
         <table className='table table-bordered'>
         <thead>
           <tr>
-            <td className='text-left'><h3>{'Header'}</h3></td>
-            <td className='text-right'>{this.state.curTime}</td>
+            <td className='text-left'><h3>{'Exercise 2'}</h3></td>
+            <td className='text-right'>
+              <CurrentTime />
+            </td>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td width="50%">
-              <TableUserData
+              <UserData
                 users={this.state.users}
                 changeCurrentUser={this.changeCurrentUser.bind(this)}
                 currentUser={this.state.currentUser}
+                addUserHandler={this.addUserHandler.bind(this)}
               />
             </td>
             <td>
               <UserForm onChangeAttribute={this.onChangeAttribute.bind(this)}
-                currentUser={this.state.currentUser}/>
+                onSubmitForm={this.onSubmitForm.bind(this)}
+                currentUser={this.state.currentUser}
+                isAddUser={this.state.isAddUser}
+              />
             </td>
           </tr>
         </tbody>

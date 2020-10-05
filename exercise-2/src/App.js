@@ -1,5 +1,5 @@
 import React from 'react';
-import User from './components/user'
+import User from './components/users'
 import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.min.css';
 
