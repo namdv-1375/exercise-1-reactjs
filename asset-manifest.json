@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/learn-reactjs/exercise-2/static/css/main.0bde720a.chunk.css",
+    "main.js": "/learn-reactjs/exercise-2/static/js/main.41c49564.chunk.js",
+    "main.js.map": "/learn-reactjs/exercise-2/static/js/main.41c49564.chunk.js.map",
+    "runtime-main.js": "/learn-reactjs/exercise-2/static/js/runtime-main.a30ddde2.js",
+    "runtime-main.js.map": "/learn-reactjs/exercise-2/static/js/runtime-main.a30ddde2.js.map",
+    "static/css/2.cfa7112b.chunk.css": "/learn-reactjs/exercise-2/static/css/2.cfa7112b.chunk.css",
+    "static/js/2.ae13fe78.chunk.js": "/learn-reactjs/exercise-2/static/js/2.ae13fe78.chunk.js",
+    "static/js/2.ae13fe78.chunk.js.map": "/learn-reactjs/exercise-2/static/js/2.ae13fe78.chunk.js.map",
+    "index.html": "/learn-reactjs/exercise-2/index.html",
+    "precache-manifest.76304627c0ef976f0a3d24d2dfb8c743.js": "/learn-reactjs/exercise-2/precache-manifest.76304627c0ef976f0a3d24d2dfb8c743.js",
+    "service-worker.js": "/learn-reactjs/exercise-2/service-worker.js",
+    "static/css/2.cfa7112b.chunk.css.map": "/learn-reactjs/exercise-2/static/css/2.cfa7112b.chunk.css.map",
+    "static/css/main.0bde720a.chunk.css.map": "/learn-reactjs/exercise-2/static/css/main.0bde720a.chunk.css.map",
+    "static/js/2.ae13fe78.chunk.js.LICENSE.txt": "/learn-reactjs/exercise-2/static/js/2.ae13fe78.chunk.js.LICENSE.txt",
+    "static/media/font-awesome.min.css": "/learn-reactjs/exercise-2/static/media/fontawesome-webfont.fee66e71.woff"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a30ddde2.js",
+    "static/css/2.cfa7112b.chunk.css",
+    "static/js/2.ae13fe78.chunk.js",
+    "static/css/main.0bde720a.chunk.css",
+    "static/js/main.41c49564.chunk.js"
+  ]
+}
